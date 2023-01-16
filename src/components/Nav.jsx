@@ -109,9 +109,9 @@ ul{
     font-size: 2rem;
     cursor: pointer;
   }
-}
-.active{
-  transform: translate(-16%);
-
+  .active{
+    transform: translate(-19%);
+  
+  }
 }
 `
