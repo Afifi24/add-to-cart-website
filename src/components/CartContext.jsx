@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { createContext } from 'react'
-import phone1 from '../images/phone1.jpg'
+import phone1 from '../images/phone11.jpg'
 import phone2 from '../images/phone2.jpg'
 import phone3 from '../images/phone3.jpg'
 import phone4 from '../images/phone4.jpg'
@@ -14,7 +14,7 @@ export const Cartcontext = createContext()
 export const Providercart = ({children}) => {
  const [items,setItems] = useState([
     {
-        image:phone1,
+        image:phone4,
         title:'apple',
         desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium consectetur distinctio, debitis soluta suscipit nisi!',
         price:'$70',
@@ -28,7 +28,7 @@ export const Providercart = ({children}) => {
 
     },
     {
-        image:phone3,
+        image:phone1,
         title:'apple',
         desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium consectetur distinctio, debitis soluta suscipit nisi!',
         price:'$110',
