@@ -7,10 +7,11 @@ import {AiOutlineBars} from 'react-icons/ai'
 import {FaTimes} from 'react-icons/fa'
 const Nav = () => {
   const [show,setShow] = useState(false)
-  const {items,product} = useContext(Cartcontext)
+  const {items,products} = useContext(Cartcontext)
   const ShowClose = ()=>{
     setShow(!show)
   }
+
   return (
     <Navstyle>
       <nav>
@@ -25,7 +26,7 @@ const Nav = () => {
         </ul>
          <Link to='/store' className="cart">
             <AiOutlineShoppingCart/>
-            <small>({product.length})</small>
+            <small>({products.length})</small>
          </Link>
       </nav>
     </Navstyle>

@@ -73,21 +73,34 @@ export const Providercart = ({children}) => {
 
     },
  ])
- const [product,setProduct] = useState([])
- const Addtocart = (items)=>{
-    setProduct(prev=>[...prev,{items}])
-  
-    swal({
+ const [products,setProducts] = useState([])
+ const Addtocart = (item)=>{
+    
+    const productItem = products.find(product=>product.id===item.id)
+    if(productItem){
+        productItem.amount +=1;
+        swal({
         title: "Good job!",
         text: "Your item has been updated!",
         icon: "success",
         button: "ok",
       });
+      setProducts([...products])
+    }else{
+        item.amount = 1;
+        swal({
+        title: "Good job!",
+        text: "Your item has been saved!",
+        icon: "success",
+        button: "ok",
+      });
+      setProducts([...products,item])
+    }
 
  }
 
   return (
-      <Cartcontext.Provider value={{items,Addtocart,product}}>
+      <Cartcontext.Provider value={{items,Addtocart,products}}>
 
        {children}
 

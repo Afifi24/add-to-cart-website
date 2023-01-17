@@ -4,8 +4,8 @@ import {Cartcontext} from './CartContext'
 const Store = () => {
 
 
-  const {product} = useContext(Cartcontext)
-  console.log(`here is a product ${product.length}`,product)
+  const {products} = useContext(Cartcontext)
+  console.log(`here is a product ${products.length}`,products)
 
   // counter
 
@@ -28,19 +28,19 @@ const Store = () => {
           </ul>
         </div>
         <div className="content">
-          {product.map(item=>{
+          {products.map(item=>{
             return(
-           <div key={item.items.image} className="item">
-             <div className="image"><img src={item.items.image} alt="" /></div>
+           <div key={item.image} className="item">
+             <div className="image"><img src={item.image} alt="" /></div>
        
             <div>
-            <p>{item.items.title}</p>
+            <p>{item.title}</p>
             </div>
-           <div><p>{item.items.price}</p>
+           <div><p>{item.price}</p>
            </div>
            <div className='count'>
             {/* <button onClick={Minuscount}>-</button> */}
-            <p>{item.items.amount}</p>
+            <p>{item.amount}</p>
             {/* <button onClick={Addcount}>+</button> */}
            </div>
            </div>
