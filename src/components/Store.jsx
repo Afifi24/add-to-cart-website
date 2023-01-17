@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React,{useContext, useState} from 'react'
 import styled from 'styled-components'
 import {Cartcontext} from './CartContext'
 const Store = () => {
@@ -6,14 +6,24 @@ const Store = () => {
 
   const {product} = useContext(Cartcontext)
   console.log(`here is a product ${product.length}`,product)
+
+  // counter
+
+  const [count,setCount] =useState(1)
+  const Addcount = ()=>{
+    setCount(prev=>prev+1)
+  }
+  const Minuscount = ()=>{
+    setCount(prev=>prev-1)
+  }
   return (
     <Storestyle>
         <div className="header">
           <ul>
-            <li>image</li>
+            <li>Image</li>
             <li>Name</li>
-            {/* <li>title</li> */}
-            <li>price</li>
+            <li>Price</li>
+            <li>Amount</li>
             
           </ul>
         </div>
@@ -22,8 +32,17 @@ const Store = () => {
             return(
            <div key={item.items.image} className="item">
              <div className="image"><img src={item.items.image} alt="" /></div>
-           <p>{item.items.title}</p>
-           <p>{item.items.price}</p>
+       
+            <div>
+            <p>{item.items.title}</p>
+            </div>
+           <div><p>{item.items.price}</p>
+           </div>
+           <div className='count'>
+            {/* <button onClick={Minuscount}>-</button> */}
+            <p>{item.items.amount}</p>
+            {/* <button onClick={Addcount}>+</button> */}
+           </div>
            </div>
             )
           })}
@@ -74,6 +93,7 @@ padding-top: 7rem;
   justify-content: space-between;
   border-bottom:1px solid #000 ;
   margin-bottom: 1rem;
+  
 }
 
 /* media queries */
@@ -83,5 +103,19 @@ padding-top: 10rem;
 margin-bottom: 3rem;
 
 }
-
+.count{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  button{
+    width: 2rem;
+    padding: 0.3rem 0;
+    background-color: #fff;
+    /* color: #fff; */
+    border: none;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+  }
+}
 `

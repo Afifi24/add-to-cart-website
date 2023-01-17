@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import img from '../images/phone1.jpg'
 import { useContext } from 'react'
 import {Cartcontext} from './CartContext'
+import {AiOutlineShoppingCart} from 'react-icons/ai'
+
 const Carditem = ({item}) => {
   const {Addtocart} = useContext(Cartcontext)
   return (
@@ -11,7 +13,7 @@ const Carditem = ({item}) => {
          <h2>{item.title}</h2>
          <p>{item.desc}</p>
          <div className="btn-price">
-         <button onClick={()=>Addtocart(item)}>Add to cart</button>
+         <button onClick={()=>Addtocart(item)}><AiOutlineShoppingCart className='icon-cart'/> Add to cart</button>
           <small>{item.price}</small>
          </div>
     </Carditemstyle>
@@ -69,5 +71,10 @@ button{
     padding-right: 1rem;
     margin-top: 0.5rem;
   }
+}
+.icon-cart{
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  /* margin-top: 0.3rem; */
 }
 `

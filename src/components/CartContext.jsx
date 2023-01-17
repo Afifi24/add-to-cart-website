@@ -6,6 +6,7 @@ import phone3 from '../images/phone3.jpg'
 import phone4 from '../images/phone4.jpg'
 import phone5 from '../images/phone5.jpg'
 import phone6 from '../images/phone6.jpg'
+import swal from 'sweetalert';
 
 export const Cartcontext = createContext()
 
@@ -13,52 +14,75 @@ export const Cartcontext = createContext()
 
 export const Providercart = ({children}) => {
  const [items,setItems] = useState([
-    {
+    {   
+        id:1,
         image:phone4,
-        title:'apple',
+        title:'Apple',
         desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium consectetur distinctio, debitis soluta suscipit nisi!',
         price:'$70',
+        amount:1,
     },
    
     {
+        id:2,
         image:phone2,
-        title:'apple',
+        title:'Sunmsung',
         desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium consectetur distinctio, debitis soluta suscipit nisi!',
         price:'$50',
-
+        amount:1,
+        
     },
-    {
+    {   
+        id:3,
         image:phone1,
-        title:'apple',
+        title:'Huwaei',
         desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium consectetur distinctio, debitis soluta suscipit nisi!',
         price:'$110',
-
-    },
-    {
-        image:phone4,
-        title:'apple',
-        desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium consectetur distinctio, debitis soluta suscipit nisi!',
-        price:'$200',
-
-    },
-    {
-        image:phone5,
-        title:'apple',
-        desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium consectetur distinctio, debitis soluta suscipit nisi!',
-        price:'$700',
+        amount:1,
         
     },
     {
+        id:4,
+        image:phone4,
+        title:'Shawmi',
+        desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium consectetur distinctio, debitis soluta suscipit nisi!',
+        price:'$200',
+        amount:1,
+
+
+    },
+    {
+
+        id:5,
+        image:phone5,
+        title:'Nokia',
+        desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium consectetur distinctio, debitis soluta suscipit nisi!',
+        price:'$700',
+        amount:1,
+
+        
+    },
+    {   
+        id:6,
         image:phone6,
-        title:'apple',
+        title:'Infinix',
         desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium consectetur distinctio, debitis soluta suscipit nisi!',
         price:'$1070',
+        amount:1,
+
 
     },
  ])
  const [product,setProduct] = useState([])
  const Addtocart = (items)=>{
     setProduct(prev=>[...prev,{items}])
+  
+    swal({
+        title: "Good job!",
+        text: "Your item has been updated!",
+        icon: "success",
+        button: "ok",
+      });
 
  }
 
